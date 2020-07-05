@@ -3,9 +3,6 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 class NetworkHelper {
-  double latitude;
-  double longitude;
-
   NetworkHelper(this.url);
   final String url;
 
@@ -14,8 +11,9 @@ class NetworkHelper {
 
     if (response.statusCode == 200) {
       String data = response.body;
-      var decodedData = jsonDecode(data);
-      return decodedData;
+      return jsonDecode(data);
+    } else {
+      print(response.statusCode);
     }
   }
 }
