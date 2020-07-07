@@ -55,4 +55,24 @@ class WeatherModel {
       return 'Bring a 🧥 just in case';
     }
   }
+
+  String getWeatherImage(int condition) {
+    if (condition < 300) {
+      return ("images/cloudy.png"); //cloudy
+    } else if (condition < 400) {
+      return ("images/rainy.png"); //rainy
+    } else if (condition < 600) {
+      return ("images/rainy.png"); //rainy
+    } else if (condition < 700) {
+      return ("images/winter.png"); // winter
+    } else if (condition < 800) {
+      return ("images/cloudy.png"); // cloudy
+    } else if (condition == 800) {
+      return ("images/sunny.png"); //sunny
+    } else if (condition <= 804) {
+      return ("images/cloudy.png"); //cloudy
+    } else {
+      return ("images/sleepy.png"); //sleep
+    }
+  }
 }
