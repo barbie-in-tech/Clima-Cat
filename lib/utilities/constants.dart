@@ -14,11 +14,11 @@ const kButtonTextStyle = TextStyle(
 );
 
 const kConditionTextStyle = TextStyle(
-  fontSize: 70.0,
+  fontSize: 50.0,
 );
 
 const kLowerText = TextStyle(
-  fontSize: 20.0,
+  fontSize: 17.0,
   fontFamily: 'Montserrat',
 );
 

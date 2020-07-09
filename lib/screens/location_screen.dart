@@ -75,15 +75,23 @@ class _LocationScreenState extends State<LocationScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blue,
-        body: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 30.0,
-            ),
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Row(
+        body: Container(
+          color: Color(0xff000000),
+//          decoration: BoxDecoration(
+//              gradient: LinearGradient(
+//                  begin: Alignment.topCenter,
+//                  end: Alignment.bottomCenter,
+//                  colors: ([
+//                    Color(0xff434343),
+//                    Color(0xff000000),
+//                    //100 Vicious StanceGet .PNG#29323c→#485563
+//                  ]))),
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   FlatButton(
@@ -94,7 +102,8 @@ class _LocationScreenState extends State<LocationScreen> {
                     },
                     child: Icon(
                       Icons.location_on,
-                      size: 50.0,
+                      size: 40.0,
+                      color: Colors.white,
                     ),
                   ),
                   Text('clima'),
@@ -116,94 +125,122 @@ class _LocationScreenState extends State<LocationScreen> {
                     },
                     child: Icon(
                       Icons.search,
-                      size: 50.0,
+                      size: 40.0,
+                      color: Colors.white,
                     ),
                   ),
                 ],
               ),
-            ),
-            Container(
-              decoration: BoxDecoration(
+              Container(
+                height: MediaQuery.of(context).size.height * 0.83,
+                width: MediaQuery.of(context).size.width * 1,
+                decoration: BoxDecoration(
 //            backgroundBlendMode: BlendMode.darken,
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: ([
-                      Colors.pinkAccent,
-                      Colors.blue,
-                    ])),
-                borderRadius: BorderRadius.circular(30.0),
-              ),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: ([
+                        Color(0xffc9518f),
+//                        Color(0xffd15e9a),
+                        Color(0xffdf89b5),
+                        Color(0xffe6a3c4),
+                        Color(0xffe0c3fc),
+                        Color(0xffbfd9fe),
+                        Color(0xffa9ccfc),
+                        Color(0xff8ec5fc),
+//                        Color(0xff6ab0f7),
+                        Color(0xff56a5f5)
+                      ])),
+                  //024 Near MoonGet .PNG#5ee7df→#b490ca
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
 //              height: MediaQuery.of(context).size.height * 0.8,
-              child: Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Column(
-//                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              '$temperature°',
-                              style: kTempTextStyle,
-                            ),
-                            Text(
-                              'Feels like $feelsLikeInInt°',
-                              style: kLowerText,
-                            ),
-                            Text(
-                              '$minTemperature° $maxTemperature°',
-                              style: kLowerText,
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              weatherIcon,
-                              style: kConditionTextStyle,
-                            ),
-                            Text(
-                              updatedDt,
-                              style: kLowerText,
-                            ),
-                            Text(
-                              cityName,
-                              textAlign: TextAlign.right,
-                              style: kLowerText,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 50.0,
-                    ),
-                    Image(
-                      image: AssetImage(getImage),
-                    ),
-                    SizedBox(
-                      height: 50.0,
-                    ),
-                    Text(
-                      weatherText,
-                      textAlign: TextAlign.right,
-                      style: kMessageTextStyle,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Text('Illustrations © Tanvi Kohli'),
-                    Text('@art_vistaaaa'),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                '$temperature°',
+                                style: kTempTextStyle,
+                              ),
+                              Text(
+                                'Feels like $feelsLikeInInt°',
+                                style: kLowerText,
+                              ),
+                              Text(
+                                '▼$minTemperature° ▲$maxTemperature°',
+                                style: kLowerText,
+                              ),
+                            ],
+                          ),
+//                          SizedBox(
+//                            width: MediaQuery.of(context).size.width * 0.3,
+//                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                weatherIcon,
+                                style: kConditionTextStyle,
+                              ),
+                              Text(
+                                updatedDt,
+                                style: kLowerText,
+                              ),
+                              Text(
+                                cityName,
+                                textAlign: TextAlign.right,
+                                style: kLowerText,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.001,
+                      ),
+                      Image(
+                        height: MediaQuery.of(context).size.height * 0.45,
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        image: AssetImage(getImage),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.005,
+                      ),
+                      Text(
+                        weatherText,
+                        textAlign: TextAlign.center,
+                        style: kMessageTextStyle,
+                      ),
+//                      SizedBox(
+//                        height: MediaQuery.of(context).size.height * 0.001,
+//                      ),
+//                    Text('Illustrations © Tanvi Kohli'),
+//                    Text('@art_vistaaaa'),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.007,
+              ),
+              Text(
+                'Illustrations © Tanvi Kohli',
+                style: TextStyle(color: Colors.white54, fontSize: 10.0),
+              ),
+              Text(
+                '@art_vistaaaa',
+                style: TextStyle(color: Colors.white54, fontSize: 10.0),
+              ),
+            ],
+          ),
         ),
       ),
     );
